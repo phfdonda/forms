@@ -1,13 +1,19 @@
 class UsersController < ApplicationController
+  # require 'users_helper'
+  # include UsersHelper
 
   def new
     @user = User.new
   end
-  
-  def create 
+
+  def create
     @user = User.new(user_params)
-    flash.notice = 'User account was created successfully!'
-    redirect_to users_path
+
+    if @user.save
+      redirect_to new_user_path
+    else
+      render :new
+    end
   end
 
   private
