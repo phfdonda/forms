@@ -1,4 +1,5 @@
 <h1> Create a new account:</h1>
+<!--
 <form action="/users#create" method="post" accept-charset="UTF-8">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <label for="username">User name:</label>
@@ -9,3 +10,22 @@
   <input type="password" id="password" name="user[password]"><br><br>
   <input type="submit" value="Submit">
 </form>
+-->
+
+<%= form_for @user do |f| %>
+<% form_authenticity_token %>
+<div>
+<%= f.label :username, 'Your name:' %>
+<%= f.text_field :username %>
+</div>
+<div>
+<%= f.label :email, 'Your email:' %>
+<%= f.text_field :email %>
+</div>
+<div>
+<%= f.label :password, 'Your password:' %>
+<%= f.password_field :password %>
+</div>
+<%= submit_tag %>
+<% byebug %>
+<% end %>
