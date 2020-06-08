@@ -10,6 +10,11 @@
   </head>
 
   <body>
+
+      <% @user.errors.full_messages.each do |error| %>
+    <p class='error'>  <%= error %> </p>
+      <% end %>
+
     <%= yield %>
   </body>
 </html>
